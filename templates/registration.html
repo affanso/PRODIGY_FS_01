@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <section class="sign-up">
+        <div class="form-signup">
+            <h2 class="text-center mb-4">Registration</h2>
+            {% if not logged_in: %}
+            <form method="post" action="{{registration}}" novalidate>
+                {{form.csrf_token}}
+                <div class="mb-3">
+                    {{form.username.label(class="form-label")}}
+                    {{form.username(class="form-control", placeholder="Enter username")}}
+                    {%for err in form.username.errors%}
+                    <p id="usernameError" class="error-message">{{err}}</p>
+                    {%endfor%}
+                </div>
+                <div class="mb-3">
+                    {{form.email.label(class="form-label")}}
+                    {{form.email(class="form-control", placeholder="Enter email")}}
+                    {%for err in form.email.errors%}
+                    <p id="emailError" class="error-message">{{err}}</p>
+                    {%endfor%}
+                </div>
+                <div class="mb-3">
+                    {{form.password.label(class="form-label")}}
+                    {{form.password(class="form-control", placeholder="Enter password")}}
+                    {%for err in form.password.errors%}
+                    <p id="passwordError" class="error-message">{{err}}</p>
+                    {%endfor%}
+                </div>
+                <div class="mb-3">
+                    {{form.confirm.label(class="form-label")}}
+                    {{form.confirm(class="form-control", placeholder="Confirm password")}}
+                    {%for err in form.confirm.errors%}
+                    <p id="passwordError" class="error-message">{{err}}</p>
+                    {%endfor%}
+                </div>
+                {{form.submit(class="btn btn-primary w-100")}}
+            </form>
+            <p class="text-center mt-3">Already have an account? <a href="{{url_for('login')}}">Sign In</a></p>
+            {% else: %}
+            <p class="error-message">You Are Already Logged In!!</p>
+            {% endif %}
+        </div>
+    </section>
+
+</body>
+</html>

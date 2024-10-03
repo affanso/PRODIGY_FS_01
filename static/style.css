@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.sign-in, .sign-up{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-signin , .form-signup{
+    width: 20rem;
+    padding: 15px;
+    background-color: #f8f8fa;
+    border-radius: 10px;
+    box-shadow: 4px 10px 12px rgba(0, 0, 0, 0.2);
+}
+.form-signin input, .form-signup input{
+    margin-bottom: 10px;
+}
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+}
+
+.success-container {
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.success-icon {
+     font-size: 3rem;
+     color: green;
+     margin-bottom: 20px;
+}
+.btn-back {
+     margin-top: 20px;
+}

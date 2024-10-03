@@ -43,7 +43,7 @@ class User(UserMixin,db.Model):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     username: Mapped[str] = mapped_column(String(1000))
     email: Mapped[str] = mapped_column(String(100), unique=True)
-    password: Mapped[str] = mapped_column(String(500))
+    password: Mapped[str] = mapped_column(String(255), nullable=False)
 
 with app.app_context():
     db.create_all()

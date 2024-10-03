@@ -19,7 +19,7 @@
             {% endif %}
             {% endwith %}
             {% if not logged_in: %}
-            <form method="POST" action="{{url_for('login')}}">
+            <form method="POST" action="{{url_for('login')}}" novalidate>
                 {{form.csrf_token}}
                 <div class="mb-3">
                     {{form.email.label(class="form-label")}}

@@ -43,7 +43,7 @@ class User(UserMixin,db.Model):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     username: Mapped[str] = mapped_column(String(100))
     email: Mapped[str] = mapped_column(String(100), unique=True)
-    password: Mapped[str] = mapped_column(String(255), nullable=False)
+    password: Mapped[str] = mapped_column(String(200), nullable=False)
 
 with app.app_context():
     db.create_all()
@@ -97,7 +97,7 @@ def registration():
             password = generate_password_hash(
                 password=form.password.data,
                 method='pbkdf2:sha256',
-                salt_length=16
+                salt_length=10
             )
             new_user = User(
                 username= username,
